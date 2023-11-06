@@ -266,7 +266,7 @@ send() {
 
 			# run bridge
 			echo "$command"
-			echo "$SPOW_TARGETS" | eval "$command" >>"$SPOW_SESH_OUT" 2>>"$SPOW_SESH_ERR"
+			echo "$SPOW_TARGETS" | eval "$command" >>"$SPOW_SESH_ERR" 2>>"$SPOW_SESH_ERR"
 			bridge_return="$?"
 
 			# check if bridge failed
