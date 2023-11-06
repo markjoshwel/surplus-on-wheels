@@ -244,6 +244,10 @@ s+ow will run the bridges through definitions in in `$HOME/.s+ow-bridges`.
 each line of `$HOME/.s+ow-bridges` is evaluated as a shell command, and is piped
 `SPOW_TARGETS`.
 
+> [!WARNING]  
+> s+ow uses the `read` command to read the file. as such, it is possible for s+ow to
+> prematurely stop reading the file if the file does not contain a trailing newline.
+
 ### bring your own bridge
 
 custom bridges are relatively easy as they are:
