@@ -1,0 +1,6 @@
+{
+  "packages": [
+    "shfmt@latest",
+    "shellcheck@latest"
+  ]
+}

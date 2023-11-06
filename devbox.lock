@@ -1,0 +1,45 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "shellcheck@latest": {
+      "last_modified": "2023-10-25T20:49:13Z",
+      "resolved": "github:NixOS/nixpkgs/75a52265bda7fd25e06e3a67dee3f0354e73243c#shellcheck",
+      "source": "devbox-search",
+      "version": "0.9.0",
+      "systems": {
+        "aarch64-darwin": {
+          "store_path": "/nix/store/w3i70rjj7nhz211hp172g5i6f8f7kp1j-shellcheck-0.9.0-bin"
+        },
+        "aarch64-linux": {
+          "store_path": "/nix/store/4fapanq6k3x6pb990mbfcnj0cwzsizr7-shellcheck-0.9.0-bin"
+        },
+        "x86_64-darwin": {
+          "store_path": "/nix/store/gkv79r6iiys1k9d523slnz4k7vf99xcl-shellcheck-0.9.0-bin"
+        },
+        "x86_64-linux": {
+          "store_path": "/nix/store/sfc6nh6a2q1a71dz39rm4y5c7az1s3di-shellcheck-0.9.0-bin"
+        }
+      }
+    },
+    "shfmt@latest": {
+      "last_modified": "2023-10-25T20:49:13Z",
+      "resolved": "github:NixOS/nixpkgs/75a52265bda7fd25e06e3a67dee3f0354e73243c#shfmt",
+      "source": "devbox-search",
+      "version": "3.7.0",
+      "systems": {
+        "aarch64-darwin": {
+          "store_path": "/nix/store/3nfimx4z0nbxdkkshqpxzrh73llm57vk-shfmt-3.7.0"
+        },
+        "aarch64-linux": {
+          "store_path": "/nix/store/2qk1vvq18nfvjjf1rz4kdxbjd6rayw6a-shfmt-3.7.0"
+        },
+        "x86_64-darwin": {
+          "store_path": "/nix/store/1rigank4nlkq41dzqvp1di4hd628wp02-shfmt-3.7.0"
+        },
+        "x86_64-linux": {
+          "store_path": "/nix/store/lv02gfaqb60xl8a3x55g6s2s0yqrrpp5-shfmt-3.7.0"
+        }
+      }
+    }
+  }
+}

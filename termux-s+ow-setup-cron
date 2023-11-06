@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# enable cron service and add to crontab
+sv-enable crond
+printf "59 * * * *\tSPOW_TARGETS=\"\" SPOW_CRON=y ~/.local/bin/s+ow\n" | crontab -
+
+# open editor
+crontab -e
+
+printf "\ndone\n"

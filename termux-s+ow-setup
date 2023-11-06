@@ -1,0 +1,22 @@
+#!/bin/sh
+set -e
+
+# get packages
+yes | pkg upgrade
+yes | pkg install python cronie termux-api termux-services wget
+
+# install pipx
+python3 -m pip install --user pipx
+
+# install surplus
+pipx install https://github.com/markjoshwel/surplus/releases/latest/download/surplus-latest-py3-none-any.whl
+
+# install s+ow
+mkdir -p ~/.local/bin/
+curl https://raw.githubusercontent.com/markjoshwel/surplus/s+ow/s+ow > ~/.local/bin/s+ow
+chmod +x ~/.local/bin/s+ow
+
+# setup path
+echo "export PATH=\$PATH:\$HOME/.local/bin/" >> ~/.profile
+
+printf "\ndone\n"
