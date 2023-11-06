@@ -1,2 +1,0 @@
-API_ID="a" API_HASH="b" ./local/bin/s+ow-telegram-bridge
-( cd ~/.local/share/mdtest; ./local/bin/s+ow-whatsapp-bridge )
