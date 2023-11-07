@@ -13,7 +13,7 @@ LOCATION_TIMEOUT=${LOCATION_TIMEOUT:-50}
 # shellcheck disable=SC2269
 SPOW_TARGETS="$SPOW_TARGETS"
 SPOW_CACHE_DIR="$HOME/.cache/s+ow"
-SPOW_BRIDGE_FILE="$HOME/.s+ow-bridges"
+SPOW_BRIDGES="$HOME/.s+ow-bridges"
 SPOW_CRON=${SPOW_CRON:-n}
 
 # per-tool session logs
@@ -63,7 +63,7 @@ if ! command -v surplus >/dev/null 2>&1; then
 fi
 
 # ensure directories
-mkdir -p "$SPOW_CACHE_DIR" "$MDTEST_DIR"
+mkdir -p "$SPOW_CACHE_DIR"
 
 # create new session logs
 rm -f "$SPOW_LOCTN_OUT" "$SPOW_SPLUS_OUT" "$SPOW_SPLUS_ERR" \
@@ -256,7 +256,7 @@ send() {
 	# run bridges
 	bridge_failures=0
 	bridge_returns=""
-	if [ -f "$SPOW_BRIDGE_FILE" ]; then
+	if [ -f "$SPOW_BRIDGES" ]; then
 		# run commands in bridge file
 		while IFS= read -r command; do
 			# skip command if its actually a comment
@@ -280,13 +280,13 @@ send() {
 			else
 				bridge_returns="$bridge_returns, $bridge_return"
 			fi
-		done <"$SPOW_BRIDGE_FILE"
+		done <"$SPOW_BRIDGES"
 	else
-		printf "s+ow: warning: no '$SPOW_BRIDGE_FILE' file; message is not sent.\n"
+		printf "s+ow: warning: no '$SPOW_BRIDGES' file; message is not sent.\n"
 		termux-notification \
 			--priority "default" \
 			--title "surplus on wheels: No bridges" \
-			--content "No '$SPOW_BRIDGE_FILE' file; message is not sent."
+			--content "No '$SPOW_BRIDGES' file; message is not sent."
 	fi
 
 	echo "$bridge_returns" >>"$SPOW_SESH_ERR"
@@ -473,8 +473,8 @@ run() {
 
 # script entry
 
-if [ -z "$JID_NOMINAL_TARGET" ] || [ -z "$JID_ERRORED_TARGET" ]; then
-	echo "s+ow: error: JID_NOMINAL_TARGET and JID_ERRORED_TARGET are not set"
+if [ -z "$SPOW_TARGETS" ]; then
+	echo "s+ow: error: SPOW_TARGETS are not set"
 	exit 1
 fi
 run
