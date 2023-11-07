@@ -47,7 +47,7 @@ started from a _fresh_ termux installation.
 2. install pipx
 
    ```text
-   python3 -m pip install --user pipx
+   pip install pipx
    ```
 
 3. install surplus:

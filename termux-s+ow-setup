@@ -6,7 +6,7 @@ yes | pkg upgrade
 yes | pkg install python cronie termux-api termux-services wget
 
 # install pipx
-python3 -m pip install --user pipx
+pip install pipx
 
 # install surplus
 pipx install https://github.com/markjoshwel/surplus/releases/latest/download/surplus-latest-py3-none-any.whl
