@@ -424,7 +424,7 @@ run() {
 		sharetext="$(cat "$SPOW_SPLUS_OUT")"
 		printf "\n"
 
-		bridge_failures="$(send "$sharetext")"
+		send "$sharetext"
 	else
 		# something has gone wrong, send an appropriate fallback
 		sharetext=""
