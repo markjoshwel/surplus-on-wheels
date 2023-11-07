@@ -72,7 +72,7 @@ touch "$SPOW_NETLC_OUT" "$SPOW_GPSLC_OUT" "$SPOW_LOCTN_OUT" \
 	"$SPOW_SPLUS_OUT" "$SPOW_SPLUS_ERR" \
 	"$SPOW_SESH_OUT" "$SPOW_SESH_ERR" \
 	"$SPOW_WEEK_OUT" "$SPOW_WEEK_ERR" \
-	"$SPOW_BRIDGES"
+	"$SPOW_BRIDGES" "$SPOW_FAKE_OUT"
 
 # 0 is nominal
 # 1 is an termux-location error
