@@ -80,6 +80,9 @@ touch "$SPOW_NETLC_OUT" "$SPOW_GPSLC_OUT" "$SPOW_LOCTN_OUT" \
 # 3 is a bridge/message send error
 status=0
 
+bridge_failures=0
+bridge_returns=""
+
 locate() {
 	# spawn termux-location processes
 	(
@@ -254,8 +257,6 @@ send() {
 	cat "$SPOW_MESSAGE" >>"$SPOW_SESH_ERR"
 
 	# run bridges
-	bridge_failures=0
-	bridge_returns=""
 	if [ -f "$SPOW_BRIDGES" ]; then
 		# run commands in bridge file
 		while IFS= read -r command; do
@@ -290,7 +291,6 @@ send() {
 	fi
 
 	echo "$bridge_returns" >>"$SPOW_SESH_ERR"
-	return "$bridge_failures"
 }
 
 notify_start() {
@@ -443,10 +443,10 @@ run() {
 
 		fi
 
-		bridge_failures="$(send "$sharetext")"
+		send "$sharetext"
 
 		# send done info except
-		printf "(%d, %d, %d, %d) [lc:%ds sp:%ds]\n" "$status" "$locate_run" "$sent_type" "$bridge_failures" "$time_locate" "$time_surplus" >>"$SPOW_SESH_ERR"
+		printf "(%d, %d, %d, %d<%s>) [lc:%ds sp:%ds]\n" "$status" "$locate_run" "$sent_type" "$bridge_failures" "$bridge_returns" "$time_locate" "$time_surplus" >>"$SPOW_SESH_ERR"
 
 		send_error_notif=true
 	fi
@@ -457,7 +457,7 @@ run() {
 	time_run_end="$(date +%s)"
 	time_run=$((time_run_end - time_run_start))
 
-	done_info="$(printf "(%d, %d, %d, %d) [lc:%ds sp:%ds sm:%ds - %ds]\n" "$status" "$locate_run" "$sent_type" "$bridge_failures" "$time_locate" "$time_surplus" "$time_sendmsg" "$time_run")"
+	done_info="$(printf "(%d, %d, %d, %d<%s>) [lc:%ds sp:%ds sm:%ds - %ds]\n" "$status" "$locate_run" "$sent_type" "$bridge_failures" "$bridge_returns" "$time_locate" "$time_surplus" "$time_sendmsg" "$time_run")"
 	echo "done $done_info" | tee -a "$SPOW_SESH_ERR"
 
 	# finish
