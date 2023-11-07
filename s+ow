@@ -446,7 +446,7 @@ run() {
 		send "$sharetext"
 
 		# send done info except
-		printf "(%d, %d, %d, %d<%s>) [lc:%ds sp:%ds]\n" "$status" "$locate_run" "$sent_type" "$bridge_failures" "$bridge_returns" "$time_locate" "$time_surplus" >>"$SPOW_SESH_ERR"
+		printf "(%d, %d, %d, %s<%s>) [lc:%ds sp:%ds]\n" "$status" "$locate_run" "$sent_type" "$bridge_failures" "$bridge_returns" "$time_locate" "$time_surplus" >>"$SPOW_SESH_ERR"
 
 		send_error_notif=true
 	fi
@@ -457,7 +457,7 @@ run() {
 	time_run_end="$(date +%s)"
 	time_run=$((time_run_end - time_run_start))
 
-	done_info="$(printf "(%d, %d, %d, %d<%s>) [lc:%ds sp:%ds sm:%ds - %ds]\n" "$status" "$locate_run" "$sent_type" "$bridge_failures" "$bridge_returns" "$time_locate" "$time_surplus" "$time_sendmsg" "$time_run")"
+	done_info="$(printf "(%d, %d, %d, %s<%s>) [lc:%ds sp:%ds sm:%ds - %ds]\n" "$status" "$locate_run" "$sent_type" "$bridge_failures" "$bridge_returns" "$time_locate" "$time_surplus" "$time_sendmsg" "$time_run")"
 	echo "done $done_info" | tee -a "$SPOW_SESH_ERR"
 
 	# finish
