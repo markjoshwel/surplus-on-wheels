@@ -13,7 +13,7 @@ pipx install https://github.com/markjoshwel/surplus/releases/latest/download/sur
 
 # install s+ow
 mkdir -p ~/.local/bin/
-curl https://raw.githubusercontent.com/markjoshwel/surplus/s+ow/s+ow > ~/.local/bin/s+ow
+curl https://raw.githubusercontent.com/markjoshwel/surplus-on-wheels/main/s+ow > ~/.local/bin/s+ow
 chmod +x ~/.local/bin/s+ow
 
 # setup path
