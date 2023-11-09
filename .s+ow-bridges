@@ -1,2 +1,2 @@
 SPOW_TELEGRAM_API_HASH="" SPOW_TELEGRAM_API_ID="" s+ow-telegram-bridge
-./local/bin/s+ow-whatsapp-bridge
+s+ow-whatsapp-bridge

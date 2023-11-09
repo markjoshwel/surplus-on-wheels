@@ -105,7 +105,7 @@ et voilà! s+ow is now setup. to actually send the message to a messaging platfo
    and add the following text:
 
    ```text
-   59 * * * *      SPOW_TARGETS="" SPOW_CRON=y ~/.local/bin/s+ow
+   59 * * * *      bash -l -c "SPOW_TARGETS="" SPOW_CRON=y s+ow"
    ```
 
    this will run s+ow every hour, a minute before the hour.
@@ -188,6 +188,9 @@ s+ow uses three environment variables, two of which are optional:
 the JIDs can be obtained by sending a message to the user/group, while running
 `s+ow mdtest`, and examining the output for your message. JIDs are email address-like
 strings.
+
+4. `LOCATION_TIMEOUT` (optional)  
+   set as a number to override the default first location timeout of `50`.
 
 ### faking locations
 

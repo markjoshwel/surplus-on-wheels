@@ -467,7 +467,7 @@ run() {
 		termux-notification \
 			--priority "default" \
 			--title "surplus on wheels has errored" \
-			--content "$done_info"
+			--content "$(printf "\n(%d, %d, %d, %s<%s>)\n[lc:%ds sp:%ds sm:%ds - %ds]\n" "$status" "$locate_run" "$sent_type" "$bridge_failures" "$bridge_returns" "$time_locate" "$time_surplus" "$time_sendmsg" "$time_run")"
 	fi
 }
 
