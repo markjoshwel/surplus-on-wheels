@@ -1,5 +1,8 @@
 # surplus on wheels
 
+| This project has been merged into the main project, [surplus](https://github.com/markjoshwel/surplus). |
+| - |
+
 surplus on wheels (s+ow) is a pure shell script to get your location using
 `termux-location`, process it through [surplus](https://github.com/markjoshwel/surplus),
 and send it to messaging service or wherever using [bridges](#bridges).
